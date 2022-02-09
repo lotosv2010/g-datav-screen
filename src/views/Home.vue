@@ -1,6 +1,9 @@
 <template>
   <div class="home">
     <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <test-component1 />
+    <test-component2 />
+    <test-component3 />
   </div>
 </template>
 
