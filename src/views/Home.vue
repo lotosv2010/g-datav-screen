@@ -1,22 +1,22 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <g-container :options="{ height: 2160, width: 3840 }">
+      <div>111</div>
+      <div>222</div>
+      <div>333</div>
+    </g-container>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
 
 export default defineComponent({
   name: "Home",
-  components: {
-    HelloWorld,
-  },
 });
 </script>
 <style lang="scss" scope>
-svg {
-  color: lightcoral;
+.home {
+  font-size: 100px;
 }
 </style>
