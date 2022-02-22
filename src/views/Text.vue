@@ -31,5 +31,26 @@
         <div style="color: red; font-size: 16px">数据加载中....</div>
       </g-loading>
     </p>
+    <p>
+      <g-fly-box>
+        <p>111</p>
+        <p>222</p>
+        <p>333</p>
+      </g-fly-box>
+    </p>
+    <p style="height: 100%; width: 50%; background: gray">
+      <g-fly-box>
+        <p>111</p>
+        <p>222</p>
+        <p>333</p>
+      </g-fly-box>
+    </p>
+    <p style="height: 100%; width: 100%; background: gray">
+      <g-fly-box>
+        <p>111</p>
+        <p>222</p>
+        <p>333</p>
+      </g-fly-box>
+    </p>
   </div>
 </template>
