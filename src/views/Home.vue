@@ -7,10 +7,16 @@
       <div class="header">
         <top-header />
       </div>
-      <div class="separator">222</div>
+      <div class="separator"></div>
       <div class="center">
         <div class="left">
-          <div class="left1">333</div>
+          <div class="left1">
+            <total-user
+              :todayUser="todayUser"
+              :growthLastDay="growthLastDay"
+              :growthLastMonth="growthLastMonth"
+            />
+          </div>
           <div class="left2">444</div>
           <div class="left3">555</div>
           <div class="left4">666</div>
@@ -41,11 +47,14 @@
 <script lang="ts">
 import { defineComponent, onMounted, ref, Ref } from "vue";
 import TopHeader from "../components/TopHeader/index.vue";
+import TotalUser from "../components/TotalUser/index.vue";
+import useScreenData from "../hooks/useScreenData";
 
 export default defineComponent({
   name: "Home",
   components: {
     TopHeader,
+    TotalUser,
   },
   setup() {
     const loading: Ref<boolean> = ref(true);
@@ -56,6 +65,7 @@ export default defineComponent({
     });
     return {
       loading,
+      ...useScreenData(),
     };
   },
 });
@@ -83,16 +93,14 @@ export default defineComponent({
     .separator {
       width: 100%;
       height: 10px;
-      background: peachpuff;
+      background: rgb(92, 88, 89);
     }
     .center {
       width: 100%;
       flex: 1;
       display: flex;
-      background: darkcyan;
       .left {
         flex: 0 0 860px;
-        background: coral;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -102,7 +110,6 @@ export default defineComponent({
         height: 100%;
         .left1 {
           height: 300px;
-          background: wheat;
         }
         .left2 {
           height: 320px;
