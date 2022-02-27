@@ -120,6 +120,37 @@ export default function (): Record<string, unknown> {
   };
   const onLineData = ref(onLineMockData);
 
+  // 热门分类
+  const hotCategoryMockData = {
+    data1: {
+      axisX: [
+        "P 系列",
+        "Mate 系列",
+        "Nova 系列",
+        "畅想系列",
+        "荣耀 X",
+        "荣耀 Play",
+        "荣耀 Magic",
+      ],
+      data1: [50, 29, 46, 88, 99, 69, 97],
+      data2: [50, 71, 54, 12, 1, 31, 3],
+    },
+    data2: {
+      axisX: [
+        "P50",
+        "P50 Pro",
+        "Mate40",
+        "Mate40 Pro",
+        "Mate X2",
+        "Nova 9",
+        "Nova9 Pro",
+      ],
+      data1: [85, 4, 3, 26, 63, 31, 19],
+      data2: [15, 96, 97, 74, 37, 69, 81],
+    },
+  };
+  const hotCategoryData = ref(hotCategoryMockData);
+
   let task: number;
   onMounted(() => {
     task = setInterval(() => {
@@ -167,6 +198,22 @@ export default function (): Record<string, unknown> {
         (item) => `${~~item + random(10)}`
       );
       onLineData.value = _onLineData;
+
+      // 热门分类
+      const _hotCategoryData = { ...hotCategoryData.value };
+      _hotCategoryData.data1.data1 = _hotCategoryData.data1.data1.map(
+        (v) => v + random(10)
+      );
+      _hotCategoryData.data1.data2 = _hotCategoryData.data1.data2.map(
+        (v) => v + random(10)
+      );
+      _hotCategoryData.data2.data1 = _hotCategoryData.data2.data1.map(
+        (v) => v + random(10)
+      );
+      _hotCategoryData.data2.data2 = _hotCategoryData.data2.data2.map(
+        (v) => v + random(10)
+      );
+      hotCategoryData.value = _hotCategoryData;
     }, 3000);
   });
   onUnmounted(() => {
@@ -182,5 +229,6 @@ export default function (): Record<string, unknown> {
     deviceData,
     genderData,
     onLineData,
+    hotCategoryData,
   };
 }
