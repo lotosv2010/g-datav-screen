@@ -19,6 +19,17 @@ export default function (): Record<string, unknown> {
   const averageAge = ref(0);
   const ageData = ref(ageMockData);
 
+  // 设备统计
+  const deviceMockData = {
+    totalDevices: 1070909,
+    devices: [
+      { key: "Android", value: 423676 },
+      { key: "iOS", value: 373581 },
+      { key: "PC", value: 273652 },
+    ],
+  };
+  const deviceData = ref(deviceMockData);
+
   let task: number;
   onMounted(() => {
     task = setInterval(() => {
@@ -34,6 +45,13 @@ export default function (): Record<string, unknown> {
         return item;
       });
       ageData.value = _ageData;
+
+      const _deviceData = { ...deviceData.value };
+      _deviceData.totalDevices += random(100);
+      _deviceData.devices.forEach((item) => {
+        item.value += random(100);
+      });
+      deviceData.value = _deviceData;
     }, 3000);
   });
   onUnmounted(() => {
@@ -46,5 +64,6 @@ export default function (): Record<string, unknown> {
     growthLastMonth,
     ageData,
     averageAge,
+    deviceData,
   };
 }

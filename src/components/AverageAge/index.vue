@@ -42,7 +42,7 @@
 import { ref, defineComponent, watch, onMounted } from "vue";
 
 export default defineComponent({
-  name: "averageAge",
+  name: "AverageAge",
   props: {
     data: Array,
     avgAge: Number,

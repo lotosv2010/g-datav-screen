@@ -20,7 +20,9 @@
           <div class="left2">
             <average-age :data="ageData" :avgAge="averageAge" />
           </div>
-          <div class="left3"></div>
+          <div class="left3">
+            <total-device :data="deviceData" />
+          </div>
           <div class="left4">666</div>
           <div class="left5">777</div>
           <div class="left6">888</div>
@@ -51,6 +53,7 @@ import { defineComponent, onMounted, ref, Ref } from "vue";
 import TopHeader from "../components/TopHeader/index.vue";
 import TotalUser from "../components/TotalUser/index.vue";
 import AverageAge from "../components/AverageAge/index.vue";
+import TotalDevice from "../components/TotalDevice/index.vue";
 import useScreenData from "../hooks/useScreenData";
 
 export default defineComponent({
@@ -59,6 +62,7 @@ export default defineComponent({
     TopHeader,
     TotalUser,
     AverageAge,
+    TotalDevice,
   },
   setup() {
     const loading: Ref<boolean> = ref(true);
