@@ -30,13 +30,22 @@ export default function (): Record<string, unknown> {
   };
   const deviceData = ref(deviceMockData);
 
+  // 性别统计
+  const genderMockData = [
+    { key: "male", value: 1442542 },
+    { key: "female", value: 1442548 },
+  ];
+  const genderData = ref(genderMockData);
+
   let task: number;
   onMounted(() => {
     task = setInterval(() => {
+      // 用户总数
       todayUser.value = todayUser.value + 10;
       growthLastDay.value = growthLastDay.value + 1;
       growthLastMonth.value = growthLastMonth.value + 1;
 
+      // 平均年龄
       averageAge.value = averageAge.value + 1;
       const _ageData = [...ageData.value];
       _ageData.map((item) => {
@@ -46,12 +55,19 @@ export default function (): Record<string, unknown> {
       });
       ageData.value = _ageData;
 
+      // 设备统计
       const _deviceData = { ...deviceData.value };
       _deviceData.totalDevices += random(100);
       _deviceData.devices.forEach((item) => {
         item.value += random(100);
       });
       deviceData.value = _deviceData;
+
+      // 性别统计
+      genderData.value = genderData.value.map((item) => {
+        item.value += random(100);
+        return item;
+      });
     }, 3000);
   });
   onUnmounted(() => {
@@ -65,5 +81,6 @@ export default function (): Record<string, unknown> {
     ageData,
     averageAge,
     deviceData,
+    genderData,
   };
 }
