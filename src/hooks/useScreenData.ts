@@ -37,6 +37,89 @@ export default function (): Record<string, unknown> {
   ];
   const genderData = ref(genderMockData);
 
+  // 店铺统计
+  const onLineMockData = {
+    axisX: [
+      "1月",
+      "2月",
+      "3月",
+      "4月",
+      "5月",
+      "6月",
+      "7月",
+      "8月",
+      "9月",
+      "10月",
+      "11月",
+      "12月",
+    ],
+    orderData: {
+      legend1: "去年线上月均接单",
+      legend2: "今年实体店月均接单",
+      data1: [
+        "330",
+        "420",
+        "560",
+        "450",
+        "610",
+        "890",
+        "720",
+        "610",
+        "580",
+        "750",
+        "770",
+        "600",
+      ],
+      data2: [
+        "430",
+        "510",
+        "660",
+        "550",
+        "710",
+        "990",
+        "620",
+        "550",
+        "760",
+        "810",
+        "930",
+        "720",
+      ],
+    },
+    rateData: {
+      legend1: "去年月新增线上店",
+      legend2: "今年月新增实体店",
+      data1: [
+        "129",
+        "223",
+        "202",
+        "197",
+        "300",
+        "112",
+        "333",
+        "249",
+        "178",
+        "322",
+        "401",
+        "167",
+      ],
+      data2: [
+        "179",
+        "263",
+        "282",
+        "297",
+        "330",
+        "344",
+        "222",
+        "299",
+        "190",
+        "455",
+        "566",
+        "233",
+      ],
+    },
+  };
+  const onLineData = ref(onLineMockData);
+
   let task: number;
   onMounted(() => {
     task = setInterval(() => {
@@ -68,6 +151,22 @@ export default function (): Record<string, unknown> {
         item.value += random(100);
         return item;
       });
+
+      // 店铺统计
+      const _onLineData = { ...onLineData.value };
+      _onLineData.orderData.data1 = _onLineData.orderData.data1.map(
+        (item) => `${~~item + random(10)}`
+      );
+      _onLineData.orderData.data2 = _onLineData.orderData.data2.map(
+        (item) => `${~~item + random(10)}`
+      );
+      _onLineData.rateData.data1 = _onLineData.rateData.data1.map(
+        (item) => `${~~item + random(10)}`
+      );
+      _onLineData.rateData.data2 = _onLineData.rateData.data2.map(
+        (item) => `${~~item + random(10)}`
+      );
+      onLineData.value = _onLineData;
     }, 3000);
   });
   onUnmounted(() => {
@@ -82,5 +181,6 @@ export default function (): Record<string, unknown> {
     averageAge,
     deviceData,
     genderData,
+    onLineData,
   };
 }

@@ -26,7 +26,9 @@
           <div class="left4">
             <total-gender :data="genderData" />
           </div>
-          <div class="left5">777</div>
+          <div class="left5">
+            <total-shop :data="onLineData" />
+          </div>
           <div class="left6">888</div>
         </div>
         <div class="right">
@@ -57,6 +59,7 @@ import TotalUser from "../components/TotalUser/index.vue";
 import AverageAge from "../components/AverageAge/index.vue";
 import TotalDevice from "../components/TotalDevice/index.vue";
 import TotalGender from "../components/TotalGender/index.vue";
+import TotalShop from "../components/TotalShop/index.vue";
 import useScreenData from "../hooks/useScreenData";
 
 export default defineComponent({
@@ -67,6 +70,7 @@ export default defineComponent({
     AverageAge,
     TotalDevice,
     TotalGender,
+    TotalShop,
   },
   setup() {
     const loading: Ref<boolean> = ref(true);
