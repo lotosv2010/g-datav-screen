@@ -17,7 +17,7 @@
           :startVal="startPercentDay"
           :endVal="growthLastDay"
           :duration="1000"
-          decimals="2"
+          :decimals="2"
           suffix="%"
         />
       </span>
@@ -27,7 +27,7 @@
           :startVal="startPercentMonth"
           :endVal="growthLastMonth"
           :duration="1000"
-          decimals="2"
+          :decimals="2"
           suffix="%"
         />
       </span>

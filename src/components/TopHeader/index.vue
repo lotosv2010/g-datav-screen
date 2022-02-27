@@ -5,7 +5,7 @@
       <g-logo stroke="red" stroke-width="20" />
     </div>
     <div class="logo-text">
-      <div class="cn-text">销售订单数据大盘</div>
+      <div class="cn-text">华为手机销售数据大盘</div>
       <div class="en-text">Sales Order Overview of Business Data</div>
     </div>
   </div>

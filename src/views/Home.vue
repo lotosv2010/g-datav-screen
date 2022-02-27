@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <g-loading v-if="loading">
-      <div class="loading-text">数据大屏加载中...</div>
+      <div class="loading-text">华为手机销售数据大屏加载中...</div>
     </g-loading>
     <g-container v-else :options="{ height: 2160, width: 3840 }">
       <div class="header">
@@ -17,8 +17,10 @@
               :growthLastMonth="growthLastMonth"
             />
           </div>
-          <div class="left2">444</div>
-          <div class="left3">555</div>
+          <div class="left2">
+            <average-age :data="ageData" :avgAge="averageAge" />
+          </div>
+          <div class="left3"></div>
           <div class="left4">666</div>
           <div class="left5">777</div>
           <div class="left6">888</div>
@@ -48,6 +50,7 @@
 import { defineComponent, onMounted, ref, Ref } from "vue";
 import TopHeader from "../components/TopHeader/index.vue";
 import TotalUser from "../components/TotalUser/index.vue";
+import AverageAge from "../components/AverageAge/index.vue";
 import useScreenData from "../hooks/useScreenData";
 
 export default defineComponent({
@@ -55,6 +58,7 @@ export default defineComponent({
   components: {
     TopHeader,
     TotalUser,
+    AverageAge,
   },
   setup() {
     const loading: Ref<boolean> = ref(true);
@@ -113,39 +117,31 @@ export default defineComponent({
         }
         .left2 {
           height: 320px;
-          background: rebeccapurple;
         }
         .left3 {
           height: 280px;
-          background: thistle;
         }
         .left4 {
           height: 230px;
-          background: yellow;
         }
         .left5 {
           height: 360px;
-          background: indianred;
         }
         .left6 {
           height: 360px;
-          background: olive;
         }
       }
       .right {
         flex: 1;
-        background: hotpink;
         display: flex;
         flex-direction: column;
         .right-top1 {
           width: 100%;
           height: 206px;
-          background: paleturquoise;
         }
         .right-top2 {
           width: 100%;
           height: 48px;
-          background: palegreen;
         }
         .right-bottom {
           flex: 1;
@@ -157,21 +153,16 @@ export default defineComponent({
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            background: peachpuff;
             .right-bottom-left1 {
-              background: firebrick;
               height: 999px;
             }
             .right-bottom-left2 {
-              background: lightgreen;
               height: 80px;
             }
             .right-bottom-left3 {
-              background: lightblue;
               height: 350px;
             }
             .right-bottom-left4 {
-              background: blueviolet;
               height: 220px;
             }
           }
@@ -182,12 +173,10 @@ export default defineComponent({
             justify-content: space-between;
             margin-left: 10px;
             .right-bottom-right1 {
-              background: cadetblue;
               width: 100%;
               height: 999px;
             }
             .right-bottom-right2 {
-              background: violet;
               width: 100%;
               flex: 1;
               margin-top: 15px;
