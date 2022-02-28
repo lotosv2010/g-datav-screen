@@ -37,11 +37,20 @@
           <div class="right-top1">
             <center-header :data="headerData" />
           </div>
-          <div class="right-top2">top2</div>
+          <div class="right-top2">
+            <transform-category
+              :data="['ALL', '北京', '上海', '深圳', '杭州', '南京', '武汉']"
+            />
+          </div>
           <div class="right-bottom">
             <div class="right-bottom-left">
               <div class="right-bottom-left1">right-bottom-left1</div>
-              <div class="right-bottom-left2">right-bottom-left2</div>
+              <div class="right-bottom-left2">
+                <transform-category
+                  :data="['订单量', '销售额', '用户数', '退单量']"
+                  :color="['rgb(178, 209, 126)', 'rgb(116, 166 ,49)']"
+                />
+              </div>
               <div class="right-bottom-left3">right-bottom-left3</div>
               <div class="right-bottom-left4">right-bottom-left4</div>
             </div>
@@ -66,6 +75,7 @@ import TotalGender from "../components/TotalGender/index.vue";
 import TotalShop from "../components/TotalShop/index.vue";
 import HotCategory from "../components/HotCategory/index.vue";
 import CenterHeader from "../components/CenterHeader/index.vue";
+import TransformCategory from "../components/TransformCategory/index.vue";
 import useScreenData from "../hooks/useScreenData";
 
 export default defineComponent({
@@ -79,6 +89,7 @@ export default defineComponent({
     TotalShop,
     HotCategory,
     CenterHeader,
+    TransformCategory,
   },
   setup() {
     const loading: Ref<boolean> = ref(true);
@@ -163,6 +174,7 @@ export default defineComponent({
         .right-top2 {
           width: 100%;
           height: 48px;
+          margin: 10px 0;
         }
         .right-bottom {
           flex: 1;
