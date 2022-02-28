@@ -34,7 +34,9 @@
           </div>
         </div>
         <div class="right">
-          <div class="right-top1">top1</div>
+          <div class="right-top1">
+            <center-header :data="headerData" />
+          </div>
           <div class="right-top2">top2</div>
           <div class="right-bottom">
             <div class="right-bottom-left">
@@ -63,6 +65,7 @@ import TotalDevice from "../components/TotalDevice/index.vue";
 import TotalGender from "../components/TotalGender/index.vue";
 import TotalShop from "../components/TotalShop/index.vue";
 import HotCategory from "../components/HotCategory/index.vue";
+import CenterHeader from "../components/CenterHeader/index.vue";
 import useScreenData from "../hooks/useScreenData";
 
 export default defineComponent({
@@ -75,6 +78,7 @@ export default defineComponent({
     TotalGender,
     TotalShop,
     HotCategory,
+    CenterHeader,
   },
   setup() {
     const loading: Ref<boolean> = ref(true);
@@ -151,6 +155,7 @@ export default defineComponent({
         flex: 1;
         display: flex;
         flex-direction: column;
+        margin-left: 10px;
         .right-top1 {
           width: 100%;
           height: 206px;

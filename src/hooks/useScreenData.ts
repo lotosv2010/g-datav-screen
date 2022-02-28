@@ -151,6 +151,53 @@ export default function (): Record<string, unknown> {
   };
   const hotCategoryData = ref(hotCategoryMockData);
 
+  // 顶部
+  const headerMockData = {
+    headerData: [
+      {
+        title: "今日销售额",
+        subTitle: "Today's Sales Amount",
+        startVal: 40041113,
+        endVal: 40105335,
+        img: "money",
+      },
+      {
+        title: "今日订单量",
+        subTitle: "Today's Total Orders",
+        startVal: 2566778,
+        endVal: 2570025,
+        img: "order",
+      },
+      {
+        title: "今日交易用户数",
+        subTitle: "Today's Payed Users",
+        startVal: 271744,
+        endVal: 272200,
+        img: "member",
+      },
+      {
+        title: "今日新增用户数",
+        subTitle: "Today's New Users",
+        startVal: 1286552,
+        endVal: 1289057,
+        img: "follow",
+      },
+    ],
+    project: [
+      {
+        title: "转化率",
+        value: "13.16%",
+        img: "success",
+      },
+      {
+        title: "退单率",
+        value: "5.73%",
+        img: "failed",
+      },
+    ],
+  };
+  const headerData = ref(headerMockData);
+
   let task: number;
   onMounted(() => {
     task = setInterval(() => {
@@ -214,6 +261,20 @@ export default function (): Record<string, unknown> {
         (v) => v + random(10)
       );
       hotCategoryData.value = _hotCategoryData;
+
+      // 顶部
+      const _headerData = { ...headerData.value };
+      _headerData.headerData = _headerData.headerData.map((item) => {
+        item.startVal = item.endVal;
+        item.endVal = item.endVal + random(100);
+        return item;
+      });
+      _headerData.project = _headerData.project.map((item) => {
+        const val = parseFloat(item.value) + 0.1;
+        item.value = `${val.toFixed(2)}%`;
+        return item;
+      });
+      headerData.value = _headerData;
     }, 3000);
   });
   onUnmounted(() => {
@@ -230,5 +291,6 @@ export default function (): Record<string, unknown> {
     genderData,
     onLineData,
     hotCategoryData,
+    headerData,
   };
 }
