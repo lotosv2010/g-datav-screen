@@ -44,7 +44,7 @@
           </div>
           <div class="right-bottom">
             <div class="right-bottom-left">
-              <div class="right-bottom-left1">right-bottom-left1</div>
+              <div class="right-bottom-left1"></div>
               <div class="right-bottom-left2">
                 <transform-category
                   :data="['订单量', '销售额', '用户数', '退单量']"
@@ -55,7 +55,9 @@
               <div class="right-bottom-left4">right-bottom-left4</div>
             </div>
             <div class="right-bottom-right">
-              <div class="right-bottom-right1">right-bottom-right1</div>
+              <div class="right-bottom-right1">
+                <sales-list :data="salesListData" />
+              </div>
               <div class="right-bottom-right2">right-bottom-right2</div>
             </div>
           </div>
@@ -76,6 +78,7 @@ import TotalShop from "../components/TotalShop/index.vue";
 import HotCategory from "../components/HotCategory/index.vue";
 import CenterHeader from "../components/CenterHeader/index.vue";
 import TransformCategory from "../components/TransformCategory/index.vue";
+import SalesList from "../components/SalesList/index.vue";
 import useScreenData from "../hooks/useScreenData";
 
 export default defineComponent({
@@ -90,6 +93,7 @@ export default defineComponent({
     HotCategory,
     CenterHeader,
     TransformCategory,
+    SalesList,
   },
   setup() {
     const loading: Ref<boolean> = ref(true);
@@ -205,6 +209,7 @@ export default defineComponent({
             flex-direction: column;
             justify-content: space-between;
             margin-left: 10px;
+            margin-right: 10px;
             .right-bottom-right1 {
               width: 100%;
               height: 999px;
