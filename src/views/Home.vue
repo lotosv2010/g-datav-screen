@@ -44,7 +44,9 @@
           </div>
           <div class="right-bottom">
             <div class="right-bottom-left">
-              <div class="right-bottom-left1"></div>
+              <div class="right-bottom-left1">
+                <order-map :data="mapData" />
+              </div>
               <div class="right-bottom-left2">
                 <transform-category
                   :data="['订单量', '销售额', '用户数', '退单量']"
@@ -79,7 +81,9 @@ import HotCategory from "../components/HotCategory/index.vue";
 import CenterHeader from "../components/CenterHeader/index.vue";
 import TransformCategory from "../components/TransformCategory/index.vue";
 import SalesList from "../components/SalesList/index.vue";
+import OrderMap from "../components/OrderMap/index.vue";
 import useScreenData from "../hooks/useScreenData";
+import useMap from "../hooks/useMap";
 
 export default defineComponent({
   name: "Home",
@@ -94,6 +98,7 @@ export default defineComponent({
     CenterHeader,
     TransformCategory,
     SalesList,
+    OrderMap,
   },
   setup() {
     const loading: Ref<boolean> = ref(true);
@@ -105,6 +110,7 @@ export default defineComponent({
     return {
       loading,
       ...useScreenData(),
+      mapData: useMap(),
     };
   },
 });
