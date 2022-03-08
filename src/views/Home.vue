@@ -56,7 +56,9 @@
               <div class="right-bottom-left3">
                 <real-time-order :data="realTimeOrder" />
               </div>
-              <div class="right-bottom-left4">right-bottom-left4</div>
+              <div class="right-bottom-left4">
+                <schedule-view :data="scheduleView" />
+              </div>
             </div>
             <div class="right-bottom-right">
               <div class="right-bottom-right1">
@@ -85,6 +87,7 @@ import TransformCategory from "../components/TransformCategory/index.vue";
 import SalesList from "../components/SalesList/index.vue";
 import OrderMap from "../components/OrderMap/index.vue";
 import RealTimeOrder from "../components/RealTimeOrder/index.vue";
+import ScheduleView from "../components/ScheduleView/index.vue";
 import useScreenData from "../hooks/useScreenData";
 import useMap from "../hooks/useMap";
 
@@ -103,6 +106,7 @@ export default defineComponent({
     SalesList,
     OrderMap,
     RealTimeOrder,
+    ScheduleView,
   },
   setup() {
     const loading: Ref<boolean> = ref(true);
