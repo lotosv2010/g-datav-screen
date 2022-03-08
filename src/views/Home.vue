@@ -53,7 +53,9 @@
                   :color="['rgb(178, 209, 126)', 'rgb(116, 166 ,49)']"
                 />
               </div>
-              <div class="right-bottom-left3">right-bottom-left3</div>
+              <div class="right-bottom-left3">
+                <real-time-order :data="realTimeOrder" />
+              </div>
               <div class="right-bottom-left4">right-bottom-left4</div>
             </div>
             <div class="right-bottom-right">
@@ -82,6 +84,7 @@ import CenterHeader from "../components/CenterHeader/index.vue";
 import TransformCategory from "../components/TransformCategory/index.vue";
 import SalesList from "../components/SalesList/index.vue";
 import OrderMap from "../components/OrderMap/index.vue";
+import RealTimeOrder from "../components/RealTimeOrder/index.vue";
 import useScreenData from "../hooks/useScreenData";
 import useMap from "../hooks/useMap";
 
@@ -99,6 +102,7 @@ export default defineComponent({
     TransformCategory,
     SalesList,
     OrderMap,
+    RealTimeOrder,
   },
   setup() {
     const loading: Ref<boolean> = ref(true);

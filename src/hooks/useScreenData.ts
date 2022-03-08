@@ -364,6 +364,24 @@ export default function (): Record<string, unknown> {
   ];
   const salesListData = ref(salesListMockData);
 
+  // 实时订单
+  const realTimeOrderMockData = {
+    date: [
+      "12:25:13",
+      "12:25:17",
+      "12:25:22",
+      "12:25:27",
+      "12:25:32",
+      "12:25:37",
+      "12:25:42",
+      "12:25:47",
+      "12:25:52",
+      "12:25:57",
+    ],
+    data: [1143, 769, 251, 733, 335, 969, 869, 1390, 168, 1391],
+  };
+  const realTimeOrder = ref(realTimeOrderMockData);
+
   let task: number;
   onMounted(() => {
     task = setInterval(() => {
@@ -459,5 +477,6 @@ export default function (): Record<string, unknown> {
     hotCategoryData,
     headerData,
     salesListData,
+    realTimeOrder,
   };
 }
