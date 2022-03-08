@@ -13,7 +13,7 @@ import { defineComponent, onMounted, ref, watch } from "vue";
 export default defineComponent({
   name: "ScheduleView",
   props: {
-    data: Object,
+    data: Array,
   },
   setup(ctx) {
     const options = ref({});

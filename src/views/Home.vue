@@ -64,7 +64,9 @@
               <div class="right-bottom-right1">
                 <sales-list :data="salesListData" />
               </div>
-              <div class="right-bottom-right2">right-bottom-right2</div>
+              <div class="right-bottom-right2">
+                <sales-rank :data="salesRank" />
+              </div>
             </div>
           </div>
         </div>
@@ -88,6 +90,7 @@ import SalesList from "../components/SalesList/index.vue";
 import OrderMap from "../components/OrderMap/index.vue";
 import RealTimeOrder from "../components/RealTimeOrder/index.vue";
 import ScheduleView from "../components/ScheduleView/index.vue";
+import SalesRank from "../components/SalesRank/index.vue";
 import useScreenData from "../hooks/useScreenData";
 import useMap from "../hooks/useMap";
 
@@ -107,6 +110,7 @@ export default defineComponent({
     OrderMap,
     RealTimeOrder,
     ScheduleView,
+    SalesRank,
   },
   setup() {
     const loading: Ref<boolean> = ref(true);
